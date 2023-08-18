@@ -6,6 +6,8 @@ newTaskForm.addEventListener('submit', (event) => {
   const data = new FormData(event.target as HTMLFormElement);
   const title = data.get('new-task-title');
 
+  console.log(`Adding task: ${title}`);
+
   // Here… we would send the data to the main process.
 
   newTaskTitle.value = '';
