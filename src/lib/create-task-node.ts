@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 
 type TaskMethods = {
-  onToggle: (id: string, node: HTMLLIElement) => void;
-  onRemove: (id: string, node: HTMLLIElement) => void;
+  onToggle: (id: string) => Promise<void>;
+  onRemove: (id: string) => Promise<void>;
 };
 
 export function createTaskNode(
   task: Task,
   methods: TaskMethods = {
-    onToggle: () => {},
-    onRemove: () => {},
+    onToggle: async () => {},
+    onRemove: async () => {},
   },
 ): HTMLLIElement {
   const { id, completed, title } = task;
