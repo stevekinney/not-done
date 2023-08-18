@@ -13,20 +13,20 @@ const database = knex({
   useNullAsDefault: true,
 });
 
-const setupDatabase = async () => {
-  if (!(await database.schema.hasTable('tasks'))) {
-    await database.schema.createTable('tasks', (table) => {
-      table.increments('id').primary();
-      table.boolean('completed').defaultTo(false);
-      table.string('title', 255).notNullable();
-      table.text('notes').nullable(); // Optional field
-    });
-  }
-};
+// const setupDatabase = async () => {
+//   if (!(await database.schema.hasTable('tasks'))) {
+//     await database.schema.createTable('tasks', (table) => {
+//       table.increments('id').primary();
+//       table.boolean('completed').defaultTo(false);
+//       table.string('title', 255).notNullable();
+//       table.text('notes').nullable(); // Optional field
+//     });
+//   }
+// };
 
-setupDatabase().catch((error) => {
-  console.error('Failed to set up database:', error);
-});
+// setupDatabase().catch((error) => {
+//   console.error('Failed to set up database:', error);
+// });
 
 // Create a new task
 export const createTask = async (title: string) => {

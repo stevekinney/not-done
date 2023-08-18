@@ -1,5 +1,6 @@
 import './index.css';
 import { newTaskForm, newTaskTitle, submitButton } from './lib/elements';
+import { addTaskToList } from './lib/tasks';
 
 newTaskForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -9,6 +10,13 @@ newTaskForm.addEventListener('submit', (event) => {
   console.log(`Adding task: ${title}`);
 
   // Here… we would send the data to the main process.
+
+  // Replace me!
+  addTaskToList({
+    id: Date.now().toString(),
+    title: title as string,
+    completed: false,
+  });
 
   newTaskTitle.value = '';
   submitButton?.setAttribute('disabled', 'disabled');
