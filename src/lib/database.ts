@@ -29,12 +29,8 @@ setupDatabase().catch((error) => {
 });
 
 // Create a new task
-export const createTask = async (
-  completed: boolean,
-  title: string,
-  notes?: string,
-) => {
-  const [id] = await database('tasks').insert({ completed, title, notes });
+export const createTask = async (title: string) => {
+  const [id] = await database('tasks').insert({ title });
   return id;
 };
 
@@ -49,13 +45,9 @@ export const getAllTasks = async (): Promise<Task[]> => {
 };
 
 // Update a task by ID
-export const updateTask = async (
-  id: number,
-  completed?: boolean,
-  title?: string,
-  notes?: string,
-) => {
-  await database('tasks').where({ id }).update({ completed, title, notes });
+export const updateTask = async (id: number) => {
+  const { completed } = await getTask(id);
+  await database('tasks').where({ id }).update({ completed: !completed });
 };
 
 // Delete a task by ID
