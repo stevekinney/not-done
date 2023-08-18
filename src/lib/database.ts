@@ -29,12 +29,12 @@ setupDatabase().catch((error) => {
 });
 
 // Create a new task
-const createTask = async (
+export const createTask = async (
   completed: boolean,
   title: string,
   notes?: string,
 ) => {
-  const [id] = await db('tasks').insert({ completed, title, notes });
+  const [id] = await database('tasks').insert({ completed, title, notes });
   return id;
 };
 
