@@ -49,12 +49,14 @@ export function createTaskNode(
 
   input.addEventListener('change', (event) => {
     event.preventDefault();
-    methods.onToggle(id, taskNode);
+    methods.onToggle(id);
   });
 
   deleteButton.addEventListener('click', (event) => {
     event.preventDefault();
-    methods.onRemove(id, taskNode);
+    methods.onRemove(id).then(() => {
+      taskNode.remove();
+    });
   });
 
   return taskNode;
