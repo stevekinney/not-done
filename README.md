@@ -9,7 +9,7 @@ Make sure you have [Node.js](https://nodejs.org/) v16 or newer, [Git](https://gi
 
 Run `npm i -g yarn` to globally install Yarn
 
-The following commands will install the repo dependencies and start the Clipmaster application.
+The following commands will install the repo dependencies and start the application.
 ```
 npm i
 npm start
